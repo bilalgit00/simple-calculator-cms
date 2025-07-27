@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "calculators"
+    label: "Calculators"
+    folder: "_calculators"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Category", name: "category", widget: "select", options: ["Math", "Finance", "Health", "Time", "Conversion"]}
+      - {label: "Permalink", name: "permalink", widget: "string", pattern: ['^[a-z0-9\-]+$', "Must be lowercase letters, numbers, and hyphens only"]}
+      - {label: "Calculator Code", name: "calculator_code", widget: "code", default_language: "javascript"}
+      - {label: "Body", name: "body", widget: "markdown"}
